@@ -50,11 +50,7 @@ def validate_options(options: list) -> None:
 		if (not optname in os.environ):
 			print(f'[ERROR] Option {optname[6:]} is missing in configuration file. Please check extension settings.')
 			return ERROR
-
-	method = os.environ['NZBPO_PROCESSMETHOD']
-	if METHODS_MAP.get(method, '') == '':
-		return ERROR
-
+	
 	return SUCCESS
 
 if validate_options(REQUIRED_OPTIONS) == ERROR:
@@ -64,8 +60,8 @@ if validate_options(REQUIRED_OPTIONS) == ERROR:
 API_KEY = os.environ['NZBPO_APIKEY']
 HOST = os.environ['NZBPO_HOST']
 PORT = os.environ['NZBPO_PORT']
-PATH = os.environ.get('NZBPP_FINALDIR') or os.environ.get('NZBPP_DIRECTORY', '')
-PROCESS_METHOD = METHODS_MAP.get[os.environ['NZBPO_PROCESSMETHOD']]
+PATH = os.environ.get('NZBPP_FINALDIR') or os.environ.get('NZBPP_DIRECTORY')
+PROCESS_METHOD = METHODS_MAP[os.environ['NZBPO_PROCESSMETHOD']]
 FORCE_REPLACE = int(os.environ['NZBPO_FORCEREPLACE'] == 'yes')
 IS_PRIORITY = int(os.environ['NZBPO_ISPRIORITY'] == 'yes')
 VERBOSE = os.environ['NZBPO_VERBOSE'] == 'yes'

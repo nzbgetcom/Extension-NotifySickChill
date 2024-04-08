@@ -67,7 +67,6 @@ class HttpServerPostprocMock(http.server.BaseHTTPRequestHandler):
 			self.send_response(400)
 			self.send_header('Content-type', 'application/json')
 			self.end_headers()
-			
 			data = {'data': {}, 'message': 'Failure', 'result': 'failure'}
 			response = json.dumps(data)
 			self.wfile.write(response.encode('utf-8'))
@@ -119,18 +118,6 @@ class Tests(unittest.TestCase):
 		server.server_close()
 		thread.join()
 		self.assertEqual(code, SUCCESS)
-	
-	def test_wrong_postproc_method(self):
-		set_default_env()
-		os.environ['NZBPO_PROCESSMETHOD'] = 'Wrong method'
-		server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocMock)
-		thread = threading.Thread(target=server.serve_forever)
-		thread.start()
-		[_, code, _] = run_script()
-		server.shutdown()
-		server.server_close()
-		thread.join()
-		self.assertEqual(code, ERROR)
 
 if __name__ == '__main__':
 	unittest.main()

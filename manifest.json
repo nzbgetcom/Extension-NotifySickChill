@@ -1,7 +1,7 @@
 {
 	"main": "main.py",
 	"name": "NotifySickChill",
-	"homepage": "https://github.com/nzbgetcom/Extension-NotifyPlex/",
+	"homepage": "https://github.com/nzbgetcom/Extension-NotifySickChill/",
 	"kind": "POST-PROCESSING",
 	"displayName": "Notify SickChill",
 	"version": "1.0",
