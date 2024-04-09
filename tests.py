@@ -119,5 +119,17 @@ class Tests(unittest.TestCase):
 		thread.join()
 		self.assertEqual(code, SUCCESS)
 
+	def test_unsupported_method(self):
+		set_default_env()
+		os.environ['NZBPO_PROCESSMETHOD'] = 'Unsupported method'
+		server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocMock)
+		thread = threading.Thread(target=server.serve_forever)
+		thread.start()
+		[_, code, _] = run_script()
+		server.shutdown()
+		server.server_close()
+		thread.join()
+		self.assertEqual(code, ERROR)
+
 if __name__ == '__main__':
 	unittest.main()

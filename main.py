@@ -45,15 +45,20 @@ REQUIRED_OPTIONS = [
 	'NZBPO_VERBOSE',
 ]
 
-def validate_options(options: list) -> None:
+def validate_options(options: list, methods_map: dict) -> None:
 	for	optname in options:
 		if (not optname in os.environ):
 			print(f'[ERROR] Option {optname[6:]} is missing in configuration file. Please check extension settings.')
 			return ERROR
 	
+	method = os.environ.get('NZBPO_PROCESSMETHOD')
+	if method == None or methods_map.get(method) == None:
+		print(f'[ERROR] Unsupported process method: {method}.')
+		return ERROR
+
 	return SUCCESS
 
-if validate_options(REQUIRED_OPTIONS) == ERROR:
+if validate_options(REQUIRED_OPTIONS, METHODS_MAP) == ERROR:
 	sys.exit(ERROR)
 
 
@@ -65,7 +70,7 @@ PROCESS_METHOD = METHODS_MAP[os.environ['NZBPO_PROCESSMETHOD']]
 FORCE_REPLACE = int(os.environ['NZBPO_FORCEREPLACE'] == 'yes')
 IS_PRIORITY = int(os.environ['NZBPO_ISPRIORITY'] == 'yes')
 VERBOSE = os.environ['NZBPO_VERBOSE'] == 'yes'
-COMMAND = os.environ.get('NZBCP_COMMAND', '') == 'ping'
+COMMAND = os.environ.get('NZBCP_COMMAND') == 'ping'
 
 URL = f'http://{HOST}:{PORT}/api/{API_KEY}'
 
