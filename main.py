@@ -20,7 +20,9 @@
 
 import os
 import sys
-import requests
+import urllib.parse
+import urllib.request
+import json
 from json import JSONDecodeError
 
 SUCCESS = 93
@@ -35,7 +37,6 @@ METHODS_MAP = {
 }
 
 REQUIRED_OPTIONS = [
-	'NZBPP_DIRECTORY',
 	'NZBPO_APIKEY',
 	'NZBPO_HOST',
 	'NZBPO_PORT',
@@ -49,17 +50,18 @@ def validate_options(options: list, methods_map: dict) -> None:
 	for	optname in options:
 		if (not optname in os.environ):
 			print(f'[ERROR] Option {optname[6:]} is missing in configuration file. Please check extension settings.')
-			return ERROR
+			sys.exit(ERROR)
 	
 	method = os.environ.get('NZBPO_PROCESSMETHOD')
 	if method == None or methods_map.get(method) == None:
 		print(f'[ERROR] Unsupported process method: {method}.')
-		return ERROR
+		sys.exit(ERROR)
 
-	return SUCCESS
+	if not os.environ.get('NZBCP_COMMAND') and not os.environ.get('NZBPP_DIRECTORY') and not os.environ.get('NZBPP_FINALDIR'):
+		print(f'[ERROR] The path to the downloaded file is not provided.')
+		sys.exit(ERROR)
 
-if validate_options(REQUIRED_OPTIONS, METHODS_MAP) == ERROR:
-	sys.exit(ERROR)
+validate_options(REQUIRED_OPTIONS, METHODS_MAP)
 
 
 API_KEY = os.environ['NZBPO_APIKEY']
@@ -79,20 +81,23 @@ if VERBOSE:
 	print('[INFO] PATH:', PATH)
 
 def ping_sickchill(url: str) -> int:
-	params = { 'cmd': 'sb.ping' }
-
-	if VERBOSE:
-		print('[INFO] PARAMS:', params)
-
 	try:
-		response = requests.get(url, params=params).json()
+		encoded_params = urllib.parse.urlencode({ 'cmd': 'sb.ping' })
 
-		if response['result'] == 'success':
-			print('[INFO] SickChill pinged successfully:', response['message'])
-			return SUCCESS
+		if VERBOSE:
+			print(f'[INFO] PARAMS:', encoded_params)
 
-		print('[ERROR] Couldn\'t ping:', response['message'])
-		return ERROR
+		full_url = f'{url}?{encoded_params}'
+		with urllib.request.urlopen(full_url) as response:
+			data = response.read().decode('utf-8')
+			response_dict = json.loads(data)
+
+			if response_dict['result'] == 'success':
+				print('[INFO] SickChill pinged successfully:', response_dict['message'])
+				return SUCCESS
+
+			print('[ERROR] Couldn\'t ping:', response_dict['message'])
+			return ERROR
 	
 	except JSONDecodeError as ex:
 		print('[ERROR] Wrong API Key?')
@@ -103,26 +108,29 @@ def ping_sickchill(url: str) -> int:
 		return ERROR
 	
 def start_post_proccessing(url: str, path: str, process_method: str, force_replace: int, is_priority: int) -> int:
-	params = {
-		'cmd': 'postprocess',
-		'path': path,
-		'process_method': process_method,
-		'force_replace': force_replace,
-		'is_priority': is_priority,
-	}
-
-	if VERBOSE:
-		print(f'[INFO] PARAMS:', params)
-
 	try:
-		response = requests.get(url, params=params).json()
+		encoded_params = urllib.parse.urlencode({
+			'cmd': 'postprocess',
+			'path': path,
+			'process_method': process_method,
+			'force_replace': force_replace,
+			'is_priority': is_priority,
+		})
 
-		if response['result'] == 'success':
-			print('[INFO] Post-proccessing started successfully:', response['message'])
-			return SUCCESS
+		if VERBOSE:
+			print(f'[INFO] PARAMS:', encoded_params)
 
-		print('[ERROR] Couldn\'t start Post-proccessing:', response['message'])
-		return ERROR
+		full_url = f'{url}?{encoded_params}'
+		with urllib.request.urlopen(full_url) as response:
+			data = response.read().decode('utf-8')
+			response_dict = json.loads(data)
+
+			if response_dict['result'] == 'success':
+				print('[INFO] Post-processing started successfully:', response_dict['message'])
+				return SUCCESS
+
+			print('[ERROR] Couldn\'t start Post-processing:', response_dict['message'])
+			return ERROR
 
 	except JSONDecodeError as ex:
 		print('[ERROR] Wrong API Key?')
