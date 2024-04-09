@@ -131,5 +131,12 @@ class Tests(unittest.TestCase):
 		thread.join()
 		self.assertEqual(code, ERROR)
 
+	def test_manifest(self):
+		with open(ROOT_DIR + '/manifest.json', encoding='utf-8') as file:
+			try:
+				json.loads(file.read())
+			except ValueError as e:
+				self.fail('manifest.json is not valid.')
+
 if __name__ == '__main__':
 	unittest.main()
