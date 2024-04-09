@@ -91,8 +91,7 @@ def set_default_env():
 	os.environ['NZBPO_PROCESSMETHOD'] = 'Copy'
 	os.environ['NZBPO_FORCEREPLACE'] = 'yes'
 	os.environ['NZBPO_ISPRIORITY'] = 'yes'
-	os.environ['NZBPO_VERBOSE'] = 'no'
-	os.environ['NZBCP_COMMAND'] = ''
+	os.environ['NZBPO_VERBOSE'] = 'yes'
 
 class Tests(unittest.TestCase):
 	def test_command(self):
@@ -130,6 +129,37 @@ class Tests(unittest.TestCase):
 		server.server_close()
 		thread.join()
 		self.assertEqual(code, ERROR)
+
+	def test_no_path_provided(self):
+		set_default_env()
+		os.environ.pop('NZBPP_DIRECTORY', None)
+		os.environ.pop('NZBCP_COMMAND', None)
+		server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocMock)
+		thread = threading.Thread(target=server.serve_forever)
+		thread.start()
+		[_, code, _] = run_script()
+		server.shutdown()
+		server.server_close()
+		thread.join()
+		self.assertEqual(code, ERROR)
+
+	def test_use_final_dir(self):
+		set_default_env()
+		DIR_PATH = 'D:\\downloads'
+		os.environ['NZBPP_DIRECTORY'] = DIR_PATH
+		os.environ['NZBPP_FINALDIR'] = ROOT_DIR
+		os.environ['NZBPO_PROCESSMETHOD'] = 'Move'
+		os.environ.pop('NZBCP_COMMAND', None)
+		server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocMock)
+		thread = threading.Thread(target=server.serve_forever)
+		thread.start()
+		[out, code, _] = run_script()
+		server.shutdown()
+		server.server_close()
+		thread.join()
+		self.assertTrue(ROOT_DIR in out)
+		self.assertTrue(DIR_PATH not in out)
+		self.assertEqual(code, SUCCESS)
 
 	def test_manifest(self):
 		with open(ROOT_DIR + '/manifest.json', encoding='utf-8') as file:

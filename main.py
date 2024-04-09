@@ -61,13 +61,14 @@ def validate_options(options: list, methods_map: dict) -> None:
 		print(f'[ERROR] The path to the downloaded file is not provided.')
 		sys.exit(ERROR)
 
+
 validate_options(REQUIRED_OPTIONS, METHODS_MAP)
 
 
 API_KEY = os.environ['NZBPO_APIKEY']
 HOST = os.environ['NZBPO_HOST']
 PORT = os.environ['NZBPO_PORT']
-PATH = os.environ.get('NZBPP_FINALDIR') or os.environ.get('NZBPP_DIRECTORY')
+PATH = os.environ.get('NZBPP_FINALDIR') or os.environ['NZBPP_DIRECTORY']
 PROCESS_METHOD = METHODS_MAP[os.environ['NZBPO_PROCESSMETHOD']]
 FORCE_REPLACE = int(os.environ['NZBPO_FORCEREPLACE'] == 'yes')
 IS_PRIORITY = int(os.environ['NZBPO_ISPRIORITY'] == 'yes')
