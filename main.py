@@ -68,10 +68,7 @@ validate_options(REQUIRED_OPTIONS, METHODS_MAP)
 API_KEY = os.environ['NZBPO_APIKEY']
 HOST = os.environ['NZBPO_HOST']
 PORT = os.environ['NZBPO_PORT']
-PATH = os.environ.get('NZBPP_FINALDIR') or os.environ['NZBPP_DIRECTORY']
-PROCESS_METHOD = METHODS_MAP[os.environ['NZBPO_PROCESSMETHOD']]
-FORCE_REPLACE = int(os.environ['NZBPO_FORCEREPLACE'] == 'yes')
-IS_PRIORITY = int(os.environ['NZBPO_ISPRIORITY'] == 'yes')
+
 VERBOSE = os.environ['NZBPO_VERBOSE'] == 'yes'
 COMMAND = os.environ.get('NZBCP_COMMAND') == 'ping'
 
@@ -79,7 +76,6 @@ URL = f'http://{HOST}:{PORT}/api/{API_KEY}'
 
 if VERBOSE: 
 	print('[INFO] URL:', URL)
-	print('[INFO] PATH:', PATH)
 
 def ping_sickchill(url: str) -> int:
 	try:
@@ -143,6 +139,15 @@ def start_post_proccessing(url: str, path: str, process_method: str, force_repla
 
 if COMMAND:
 	sys.exit(ping_sickchill(URL))
+
+
+PATH = os.environ.get('NZBPP_FINALDIR') or os.environ['NZBPP_DIRECTORY']
+PROCESS_METHOD = METHODS_MAP[os.environ['NZBPO_PROCESSMETHOD']]
+FORCE_REPLACE = int(os.environ['NZBPO_FORCEREPLACE'] == 'yes')
+IS_PRIORITY = int(os.environ['NZBPO_ISPRIORITY'] == 'yes')
+
+if VERBOSE:
+	print('[INFO] PATH:', PATH)
 
 sys.exit(
 	start_post_proccessing(
