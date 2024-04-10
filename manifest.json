@@ -1,0 +1,103 @@
+{
+    "main": "main.py",
+    "name": "NotifySickChill",
+    "homepage": "https://github.com/nzbgetcom/Extension-NotifySickChill/",
+    "kind": "POST-PROCESSING",
+    "displayName": "Notify SickChill",
+    "version": "1.0",
+    "author": "Denis",
+    "license": "GNU",
+    "about": "Manually starts SickChill post-processing.",
+    "queueEvents": "",
+    "description": [],
+    "requirements": [
+        "This extension is compatible to Python 3.8 and above."
+    ],
+    "options": [
+        {
+            "name": "host",
+            "displayName": "Host",
+            "value": "127.0.0.1",
+            "description": [
+                "SickChill server host."
+            ],
+            "select": []
+        },
+        {
+            "name": "port",
+            "displayName": "Port",
+            "value": 8081,
+            "description": [
+                "Default port is: 8081"
+            ],
+            "select": [1, 65535]
+        },
+        {
+            "name": "apiKey",
+            "displayName": "API Key",
+            "value": "<API KEY>",
+            "description": [
+                "Used to authenticate and authorize access to an SickChill API.",
+                "",
+                "Can be found in the settings of the web interface of SickChill."
+            ],
+            "select": []
+        },
+        {
+            "name": "processMethod",
+            "displayName": "Process Method",
+            "value": "Copy",
+            "description": [
+                "Process Method to be used.",
+                "",
+                "Copy - Copy's the file to your show folder. (And so leaves a copy in your TV Download Dir present);",
+                "Move - Moves the file to your show folder. (And so removes the file in your TV Download Dir);",
+                "Hard link - Creates a hard link in your shows folder, and leaves the file also in your TV Download Dir;",
+                "Symbolic link - Creates a link in your shows folder to the file inside your TV Download Dir. Note: if you remove the file the link also doesn't work anymore!"
+            ],
+            "select": ["Copy", "Move", "Hard Link", "Symbolic Link"]
+        },
+        {
+            "name": "forceReplace",
+            "displayName": "Force Replace",
+            "value": "no",
+            "description": [
+                "Force already post-processed files to be post-processed again."
+            ],
+            "select": ["no", "yes"]
+        },
+        {
+            "name": "isPriority",
+            "displayName": "Is Priority",
+            "value": "no",
+            "description": [
+                "Mark Dir/Files as priority download.",
+                "",
+                "Replaces the file even if it exists at higher quality."
+            ],
+            "select": ["no", "yes"]
+        },
+        {
+            "name": "Verbose",
+            "displayName": "Verbose",
+            "value": "no",
+            "description": [
+                "Print more logging messages.",
+                "",
+                "For debugging."
+            ],
+            "select": ["no", "yes"]
+        }
+    ],
+    "commands": [
+        {
+            "name": "ping",
+            "displayName": "Ping",
+            "action": "Ping SickChill",
+            "description": [
+                "Ping SickChill to check if it is running."
+            ]
+        }
+    ],
+    "taskTime": ""
+}
