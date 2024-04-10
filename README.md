@@ -6,6 +6,4 @@
 
 # Notify SickChill
 
-[Post-processing](https://github.com/nzbgetcom/nzbget/blob/develop/docs/extensions/POST-PROCESSING.md) extension for [NZBGet](https://nzbget.com).
-
-This is an extension for downloaded TV shows that manually starts [SickChill post-processing](https://github.com/SickChill/sickchill/wiki/Post-Processing).
+NZBGet [Post-Processing](https://github.com/nzbgetcom/nzbget/blob/develop/docs/extensions/POST-PROCESSING.md) extension to trigger [SickChill](https://github.com/SickChill/sickchill/wiki/Post-Processing) after downloads.

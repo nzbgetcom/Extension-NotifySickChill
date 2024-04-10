@@ -7,7 +7,7 @@
     "version": "1.0",
     "author": "Denis",
     "license": "GNU",
-    "about": "Manually starts SickChill post-processing.",
+    "about": "Post-Processing extension to trigger SickChill after downloads.",
     "queueEvents": "",
     "description": [],
     "requirements": [
