@@ -4,7 +4,7 @@
     "homepage": "https://github.com/nzbgetcom/Extension-NotifySickChill/",
     "kind": "POST-PROCESSING",
     "displayName": "Notify SickChill",
-    "version": "1.0",
+    "version": "1.1",
     "author": "Denis",
     "license": "GNU",
     "about": "Post-Processing extension to trigger SickChill after downloads.",
@@ -37,7 +37,7 @@
             "displayName": "API Key",
             "value": "<API KEY>",
             "description": [
-                "Used to authenticate and authorize access to an SickChill API.",
+                "Used to authenticate and authorize access to the SickChill API.",
                 "",
                 "Can be found in the settings of the web interface of SickChill."
             ],
@@ -74,6 +74,19 @@
                 "Mark Dir/Files as priority download.",
                 "",
                 "Replaces the file even if it exists at higher quality."
+            ],
+            "select": ["no", "yes"]
+        },
+        {
+            "name": "delete",
+            "displayName": "Delete",
+            "value": "no",
+            "description": [
+                "Delete files and folders after completion of Post-Processing.",
+                "",
+                "Recommended when Process Method is Copy, Hard link or Symbolic link:",
+                "original files remain in the download directory and are removed after processing.",
+                "With Move it cleans up leftover files and empty folders."
             ],
             "select": ["no", "yes"]
         },

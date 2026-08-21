@@ -57,8 +57,67 @@ class HttpServerPostprocMock(http.server.BaseHTTPRequestHandler):
         process_method = query_params.get("process_method", [""])[0] == "move"
         force_replace = query_params.get("force_replace", [""])[0] == "1"
         is_priority = query_params.get("is_priority", [""])[0] == "1"
+        delete = query_params.get("delete", ["0"])[0] in ["0", "1"]
+        failed = query_params.get("failed", ["0"])[0] in ["0", "1"]
 
-        if cmd and path and process_method and force_replace and is_priority:
+        if cmd and path and process_method and force_replace and is_priority and delete and failed:
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            data = {"data": {}, "message": "Started", "result": "success"}
+            response = json.dumps(data)
+            self.wfile.write(response.encode("utf-8"))
+        else:
+            self.send_response(400)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            data = {"data": {}, "message": "Failure", "result": "failure"}
+            response = json.dumps(data)
+            self.wfile.write(response.encode("utf-8"))
+
+
+class HttpServerPostprocFailedMock(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        parsed_url = urlparse(self.path)
+        query_params = parse_qs(parsed_url.query)
+        cmd = query_params.get("cmd", [""])[0] == "postprocess"
+        path = query_params.get("path", [""])[0] == ROOT_DIR
+        process_method = query_params.get("process_method", [""])[0] == "move"
+        force_replace = query_params.get("force_replace", [""])[0] == "1"
+        is_priority = query_params.get("is_priority", [""])[0] == "1"
+        delete = query_params.get("delete", ["0"])[0] in ["0", "1"]
+        failed = query_params.get("failed", [""])[0] == "1"
+        nzb_name = query_params.get("nzbName", [""])[0] == "Test.Show.S01E01"
+
+        if cmd and path and process_method and force_replace and is_priority and delete and failed and nzb_name:
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            data = {"data": {}, "message": "Started", "result": "success"}
+            response = json.dumps(data)
+            self.wfile.write(response.encode("utf-8"))
+        else:
+            self.send_response(400)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            data = {"data": {}, "message": "Failure", "result": "failure"}
+            response = json.dumps(data)
+            self.wfile.write(response.encode("utf-8"))
+
+
+class HttpServerPostprocDeleteMock(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        parsed_url = urlparse(self.path)
+        query_params = parse_qs(parsed_url.query)
+        cmd = query_params.get("cmd", [""])[0] == "postprocess"
+        path = query_params.get("path", [""])[0] == ROOT_DIR
+        process_method = query_params.get("process_method", [""])[0] == "move"
+        force_replace = query_params.get("force_replace", [""])[0] == "1"
+        is_priority = query_params.get("is_priority", [""])[0] == "1"
+        delete = query_params.get("delete", [""])[0] == "1"
+        failed = query_params.get("failed", [""])[0] == "0"
+
+        if cmd and path and process_method and force_replace and is_priority and delete and failed:
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
@@ -101,6 +160,7 @@ def set_default_env():
     os.environ["NZBPO_PROCESSMETHOD"] = "Copy"
     os.environ["NZBPO_FORCEREPLACE"] = "yes"
     os.environ["NZBPO_ISPRIORITY"] = "yes"
+    os.environ["NZBPO_DELETE"] = "no"
     os.environ["NZBPO_VERBOSE"] = "yes"
 
 
@@ -127,6 +187,51 @@ class Tests(unittest.TestCase):
         server.shutdown()
         server.server_close()
         thread.join()
+        self.assertEqual(code, SUCCESS)
+
+    def test_postproc_delete(self):
+        set_default_env()
+        os.environ["NZBPO_PROCESSMETHOD"] = "Move"
+        os.environ["NZBPO_DELETE"] = "yes"
+        os.environ["NZBPP_TOTALSTATUS"] = "SUCCESS"
+        server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocDeleteMock)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.start()
+        [_, code, _] = run_script()
+        server.shutdown()
+        server.server_close()
+        thread.join()
+        self.assertEqual(code, SUCCESS)
+
+    def test_postproc_failed_totalstatus(self):
+        set_default_env()
+        os.environ["NZBPO_PROCESSMETHOD"] = "Move"
+        os.environ["NZBPP_TOTALSTATUS"] = "FAILURE"
+        os.environ["NZBPP_NZBNAME"] = "Test.Show.S01E01"
+        server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocFailedMock)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.start()
+        [out, code, _] = run_script()
+        server.shutdown()
+        server.server_close()
+        thread.join()
+        self.assertTrue("Download status indicates FAILURE" in out)
+        self.assertEqual(code, SUCCESS)
+
+    def test_postproc_failed_status(self):
+        set_default_env()
+        os.environ["NZBPO_PROCESSMETHOD"] = "Move"
+        os.environ["NZBPP_TOTALSTATUS"] = "SUCCESS"
+        os.environ["NZBPP_STATUS"] = "FAILURE/HEALTH"
+        os.environ["NZBPP_NZBNAME"] = "Test.Show.S01E01"
+        server = http.server.HTTPServer((HOST, int(PORT)), HttpServerPostprocFailedMock)
+        thread = threading.Thread(target=server.serve_forever)
+        thread.start()
+        [out, code, _] = run_script()
+        server.shutdown()
+        server.server_close()
+        thread.join()
+        self.assertTrue("Download status indicates FAILURE" in out)
         self.assertEqual(code, SUCCESS)
 
     def test_unsupported_method(self):
