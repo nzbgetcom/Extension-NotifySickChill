@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing-Erweiterung, um SickChill nach Downloads zu benachrichtigen.",
+  "apikey_desc": "Wird zur Authentifizierung und Autorisierung des Zugriffs auf die SickChill-API verwendet.\n\nKann in den Einstellungen der Weboberfläche von SickChill gefunden werden.",
+  "delete_desc": "Dateien und Ordner nach Abschluss der Nachbearbeitung löschen.\n\nEmpfohlen, wenn die Verarbeitungsmethode Kopieren, Harter Link oder Symbolischer Link ist:\nOriginaldateien verbleiben im Download-Verzeichnis und werden nach der Verarbeitung entfernt.\nBei Verschieben werden verbleibende Dateien und leere Ordner bereinigt.",
+  "forcereplace_desc": "Bereits nachbearbeitete Dateien erneut nachbearbeiten.",
+  "host_desc": "SickChill-Server-Host.",
+  "ispriority_desc": "Verzeichnis/Dateien als Prioritäts-Download markieren.\n\nErsetzt die Datei auch dann, wenn sie in höherer Qualität vorhanden ist.",
+  "ping_desc": "SickChill anpingen, um zu prüfen, ob es läuft.",
+  "port_desc": "Standardport ist: 8081",
+  "processmethod_desc": "Zu verwendende Verarbeitungsmethode.\n\nKopieren - Kopiert die Datei in Ihren Serienordner. (Hinterlässt eine Kopie in Ihrem TV-Download-Verzeichnis);\nVerschieben - Verschiebt die Datei in Ihren Serienordner. (Entfernt die Datei aus Ihrem TV-Download-Verzeichnis);\nHarter Link - Erstellt einen harten Link in Ihrem Serienordner und lässt die Datei auch im TV-Download-Verzeichnis;\nSymbolischer Link - Erstellt einen Link in Ihrem Serienordner zur Datei im TV-Download-Verzeichnis. Hinweis: Wenn Sie die Datei entfernen, funktioniert der Link ebenfalls nicht mehr!",
+  "requirements": "Diese Erweiterung ist kompatibel mit Python 3.8 und höher.",
+  "verbose_desc": "Mehr Protokollmeldungen ausgeben.\n\nZur Fehlersuche."
+}

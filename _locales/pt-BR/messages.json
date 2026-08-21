@@ -1,0 +1,13 @@
+{
+  "about": "Extensão de pós-processamento para acionar o SickChill após os downloads.",
+  "apikey_desc": "Usada para autenticar e autorizar o acesso à API do SickChill.\n\nPode ser encontrada nas configurações da interface web do SickChill.",
+  "delete_desc": "Excluir arquivos e pastas após a conclusão do pós-processamento.\n\nRecomendado quando o Método de Processamento for Copiar, Link físico ou Link simbólico:\nos arquivos originais permanecem no diretório de download e são removidos após o processamento.\nCom Mover, limpa os arquivos restantes e as pastas vazias.",
+  "forcereplace_desc": "Forçar o pós-processamento de arquivos já processados novamente.",
+  "host_desc": "Host do servidor SickChill.",
+  "ispriority_desc": "Marcar diretório/arquivos como download prioritário.\n\nSubstitui o arquivo mesmo que ele já exista em qualidade superior.",
+  "ping_desc": "Verificar se o SickChill está em execução enviando um ping.",
+  "port_desc": "A porta padrão é: 8081",
+  "processmethod_desc": "Método de processamento a ser usado.\n\nCopiar - Copia o arquivo para a pasta do seu programa. (E assim deixa uma cópia no seu diretório de download de TV);\nMover - Move o arquivo para a pasta do seu programa. (E assim remove o arquivo do seu diretório de download de TV);\nLink físico - Cria um link físico na pasta dos seus programas e deixa o arquivo também no seu diretório de download de TV;\nLink simbólico - Cria um link na pasta dos seus programas apontando para o arquivo dentro do seu diretório de download de TV. Nota: se você remover o arquivo, o link também deixará de funcionar!",
+  "requirements": "Esta extensão é compatível com Python 3.8 e superior.",
+  "verbose_desc": "Exibir mais mensagens de log.\n\nPara depuração."
+}

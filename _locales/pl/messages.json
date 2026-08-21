@@ -1,0 +1,13 @@
+{
+  "about": "Rozszerzenie Post-Processing do powiadamiania SickChill po pobraniu plików.",
+  "apikey_desc": "Używany do uwierzytelniania i autoryzacji dostępu do API SickChill.\n\nMożna go znaleźć w ustawieniach interfejsu webowego SickChill.",
+  "delete_desc": "Usuń pliki i foldery po zakończeniu Post-Processing.\n\nZalecane gdy Metoda przetwarzania to Kopiuj, Twardy link lub Link symboliczny:\noryginalne pliki pozostają w katalogu pobierania i są usuwane po przetworzeniu.\nPrzy opcji Przenieś czyści pozostałe pliki i puste foldery.",
+  "forcereplace_desc": "Wymuś ponowne przetwarzanie plików już przetworzonych przez Post-Processing.",
+  "host_desc": "Host serwera SickChill.",
+  "ispriority_desc": "Oznacz katalog/pliki jako pobieranie priorytetowe.\n\nZastępuje plik nawet jeśli istnieje w wyższej jakości.",
+  "ping_desc": "Pinguj SickChill, aby sprawdzić czy działa.",
+  "port_desc": "Domyślny port to: 8081",
+  "processmethod_desc": "Metoda przetwarzania do użycia.\n\nKopiuj - Kopiuje plik do folderu serialu. (Pozostawia kopię w folderze pobierania TV);\nPrzenieś - Przenosi plik do folderu serialu. (Usuwa plik z folderu pobierania TV);\nTwardy link - Tworzy twardy link w folderze serialu i pozostawia plik również w folderze pobierania TV;\nLink symboliczny - Tworzy link w folderze serialu do pliku w folderze pobierania TV. Uwaga: jeśli usuniesz plik, link również przestanie działać!",
+  "requirements": "To rozszerzenie jest kompatybilne z Python 3.8 i nowszymi wersjami.",
+  "verbose_desc": "Wyświetlaj więcej komunikatów w dzienniku.\n\nDo celów debugowania."
+}

@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing udvidelse til at udløse SickChill efter downloads.",
+  "apikey_desc": "Bruges til at godkende og autorisere adgang til SickChill API.\n\nKan findes i indstillingerne i SickChills webgrænseflade.",
+  "delete_desc": "Slet filer og mapper efter afslutning af Post-Processing.\n\nAnbefales når Behandlingsmetode er Kopier, Hårdt link eller Symbolsk link:\noriginale filer forbliver i download-mappen og fjernes efter behandling.\nMed Flyt ryddes der op i resterende filer og tomme mapper.",
+  "forcereplace_desc": "Tving allerede post-processerede filer til at blive post-processeret igen.",
+  "host_desc": "SickChill serverens vært.",
+  "ispriority_desc": "Markér mappe/filer som prioritetsdownload.\n\nErstatter filen selv hvis den findes i højere kvalitet.",
+  "ping_desc": "Ping SickChill for at kontrollere om det kører.",
+  "port_desc": "Standardport er: 8081",
+  "processmethod_desc": "Behandlingsmetode der skal bruges.\n\nKopier - Kopierer filen til din seriemappe. (Og efterlader dermed en kopi i din TV Download-mappe);\nFlyt - Flytter filen til din seriemappe. (Og fjerner dermed filen i din TV Download-mappe);\nHård link - Opretter et hårdt link i din seriemappe og efterlader også filen i din TV Download-mappe;\nSymbolsk link - Opretter et link i din seriemappe til filen i din TV Download-mappe. Bemærk: hvis du fjerner filen, virker linket heller ikke længere!",
+  "requirements": "Denne udvidelse er kompatibel med Python 3.8 og nyere.",
+  "verbose_desc": "Udskriv flere logbeskeder.\n\nTil fejlfinding."
+}

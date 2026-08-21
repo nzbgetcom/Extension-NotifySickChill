@@ -1,0 +1,13 @@
+{
+  "about": "İndirmelerden sonra SickChill'i tetiklemek için İndirme Sonrası işlem uzantısı.",
+  "apikey_desc": "SickChill API'sine erişimi doğrulamak ve yetkilendirmek için kullanılır.\n\nSickChill'in web arayüzü ayarlarında bulunabilir.",
+  "delete_desc": "İndirme Sonrası işlem tamamlandıktan sonra dosya ve klasörleri sil.\n\nİşlem Yöntemi Kopyala, Sabit bağlantı veya Sembolik bağlantı olduğunda önerilir:\norijinal dosyalar indirme dizininde kalır ve işlemden sonra kaldırılır.\nTaşı ile artık kalan dosyaları ve boş klasörleri temizler.",
+  "forcereplace_desc": "Zaten işlenmiş dosyaları tekrar işlemeye zorla.",
+  "host_desc": "SickChill sunucu adresi.",
+  "ispriority_desc": "Dizin/Dosyaları öncelikli indirme olarak işaretle.\n\nDaha yüksek kalitede mevcut olsa bile dosyanın üzerine yazar.",
+  "ping_desc": "SickChill'in çalışıp çalışmadığını kontrol etmek için ping at.",
+  "port_desc": "Varsayılan port: 8081",
+  "processmethod_desc": "Kullanılacak İşlem Yöntemi.\n\nKopyala - Dosyayı dizi klasörünüze kopyalar. (Böylece TV İndirme Dizinizde bir kopya bırakır);\nTaşı - Dosyayı dizi klasörünüze taşır. (Böylece TV İndirme Dizinizden dosyayı kaldırır);\nSabit bağlantı - Dizi klasörünüzde sabit bir bağlantı oluşturur ve dosyayı TV İndirme Dizinizde de bırakır;\nSembolik bağlantı - Dizi klasörünüzde TV İndirme Dizinizin içindeki dosyaya bir bağlantı oluşturur. Not: Dosyayı kaldırırsanız bağlantı da çalışmaz!",
+  "requirements": "Bu uzantı Python 3.8 ve üzeri ile uyumludur.",
+  "verbose_desc": "Daha fazla günlük mesajı yazdır.\n\nHata ayıklama için."
+}

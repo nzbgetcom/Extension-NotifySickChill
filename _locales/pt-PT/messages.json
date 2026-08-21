@@ -1,0 +1,13 @@
+{
+  "about": "Extensão de Pós-Processamento para notificar o SickChill após as transferências.",
+  "apikey_desc": "Utilizada para autenticar e autorizar o acesso à API do SickChill.\n\nPode ser encontrada nas definições da interface web do SickChill.",
+  "delete_desc": "Eliminar ficheiros e pastas após a conclusão do Pós-Processamento.\n\nRecomendado quando o Método de Processamento é Copiar, Ligação física ou Ligação simbólica:\nos ficheiros originais permanecem na pasta de transferências e são removidos após o processamento.\nCom Mover, limpa os ficheiros restantes e as pastas vazias.",
+  "forcereplace_desc": "Forçar o pós-processamento de ficheiros já pós-processados.",
+  "host_desc": "Endereço do servidor SickChill.",
+  "ispriority_desc": "Marcar Pasta/Ficheiros como transferência prioritária.\n\nSubstitui o ficheiro mesmo que já exista com qualidade superior.",
+  "ping_desc": "Fazer ping ao SickChill para verificar se está em execução.",
+  "port_desc": "A porta predefinida é: 8081",
+  "processmethod_desc": "Método de Processamento a utilizar.\n\nCopiar - Copia o ficheiro para a pasta da série. (E deixa uma cópia na pasta de Transferências de TV);\nMover - Move o ficheiro para a pasta da série. (E remove o ficheiro da pasta de Transferências de TV);\nLigação física - Cria uma ligação física na pasta das séries e deixa o ficheiro também na pasta de Transferências de TV;\nLigação simbólica - Cria uma ligação na pasta das séries para o ficheiro dentro da pasta de Transferências de TV. Nota: se remover o ficheiro, a ligação também deixa de funcionar!",
+  "requirements": "Esta extensão é compatível com Python 3.8 e superior.",
+  "verbose_desc": "Mostrar mais mensagens de registo.\n\nPara depuração."
+}

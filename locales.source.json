@@ -1,0 +1,46 @@
+{
+    "about": {
+        "message": "Post-Processing extension to trigger SickChill after downloads.",
+        "description": "Short description of the Notify SickChill extension shown in settings."
+    },
+    "requirements": {
+        "message": "This extension is compatible to Python 3.8 and above.",
+        "description": "System requirements (each requirement is a separate string). DO NOT translate technical version strings (e.g., Python 3.8.x)."
+    },
+    "host_desc": {
+        "message": "SickChill server host.",
+        "description": "Help text for the host option in Notify SickChill."
+    },
+    "port_desc": {
+        "message": "Default port is: 8081",
+        "description": "Help text for the port option in Notify SickChill."
+    },
+    "apikey_desc": {
+        "message": "Used to authenticate and authorize access to the SickChill API.\n\nCan be found in the settings of the web interface of SickChill.",
+        "description": "Help text for the apiKey option in Notify SickChill."
+    },
+    "processmethod_desc": {
+        "message": "Process Method to be used.\n\nCopy - Copy's the file to your show folder. (And so leaves a copy in your TV Download Dir present);\nMove - Moves the file to your show folder. (And so removes the file in your TV Download Dir);\nHard link - Creates a hard link in your shows folder, and leaves the file also in your TV Download Dir;\nSymbolic link - Creates a link in your shows folder to the file inside your TV Download Dir. Note: if you remove the file the link also doesn't work anymore!",
+        "description": "Help text for the processMethod option in Notify SickChill."
+    },
+    "forcereplace_desc": {
+        "message": "Force already post-processed files to be post-processed again.",
+        "description": "Help text for the forceReplace option in Notify SickChill."
+    },
+    "ispriority_desc": {
+        "message": "Mark Dir/Files as priority download.\n\nReplaces the file even if it exists at higher quality.",
+        "description": "Help text for the isPriority option in Notify SickChill."
+    },
+    "delete_desc": {
+        "message": "Delete files and folders after completion of Post-Processing.\n\nRecommended when Process Method is Copy, Hard link or Symbolic link:\noriginal files remain in the download directory and are removed after processing.\nWith Move it cleans up leftover files and empty folders.",
+        "description": "Help text for the delete option in Notify SickChill."
+    },
+    "verbose_desc": {
+        "message": "Print more logging messages.\n\nFor debugging.",
+        "description": "Help text for the Verbose option in Notify SickChill."
+    },
+    "ping_desc": {
+        "message": "Ping SickChill to check if it is running.",
+        "description": "Help text for the ping option in Notify SickChill."
+    }
+}
