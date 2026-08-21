@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing rozšíření pro spuštění SickChill po stažení.",
+  "apikey_desc": "Používá se k ověření a autorizaci přístupu k API SickChill.\n\nNajdete ji v nastavení webového rozhraní SickChill.",
+  "delete_desc": "Smazat soubory a složky po dokončení post-zpracování.\n\nDoporučeno, když je metoda zpracování Kopírovat, Tvrdý odkaz nebo Symbolický odkaz:\npůvodní soubory zůstanou ve složce pro stahování a jsou odstraněny po zpracování.\nPři Přesunutí vyčistí zbývající soubory a prázdné složky.",
+  "forcereplace_desc": "Vynutit opětovné post-zpracování již post-zpracovaných souborů.",
+  "host_desc": "Hostitel serveru SickChill.",
+  "ispriority_desc": "Označit složku/soubory jako prioritní stahování.\n\nNahradí soubor i v případě, že existuje ve vyšší kvalitě.",
+  "ping_desc": "Pingnout SickChill a zkontrolovat, zda běží.",
+  "port_desc": "Výchozí port je: 8081",
+  "processmethod_desc": "Metoda zpracování, která má být použita.\n\nKopírovat - Zkopíruje soubor do složky pořadu. (A tak ponechá kopii ve složce pro stahování TV);\nPřesunout - Přesune soubor do složky pořadu. (A tak odstraní soubor ze složky pro stahování TV);\nTvrdý odkaz - Vytvoří pevný odkaz ve složce pořadů a ponechá soubor také ve složce pro stahování TV;\nSymbolický odkaz - Vytvoří odkaz ve složce pořadů na soubor ve složce pro stahování TV. Poznámka: pokud soubor odstraníte, odkaz přestane fungovat!",
+  "requirements": "Toto rozšíření je kompatibilní s Python 3.8 a vyšším.",
+  "verbose_desc": "Zobrazit více zpráv protokolu.\n\nPro ladění."
+}

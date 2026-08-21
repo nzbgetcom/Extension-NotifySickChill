@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing bővítmény a SickChill értesítéséhez letöltések után.",
+  "apikey_desc": "A SickChill API eléréséhez szükséges hitelesítési kulcs.\n\nA SickChill webes felületének beállításaiban található.",
+  "delete_desc": "Fájlok és mappák törlése a Post-Processing befejezése után.\n\nAjánlott, ha a feldolgozási módszer Másolás, Hard link vagy Szimbolikus link:\naz eredeti fájlok a letöltési könyvtárban maradnak, és feldolgozás után törlődnek.\nÁthelyezés esetén a maradék fájlokat és üres mappákat takarítja el.",
+  "forcereplace_desc": "Kényszeríti a már feldolgozott fájlok újbóli post-processzálását.",
+  "host_desc": "SickChill szerver hosztneve.",
+  "ispriority_desc": "A könyvtár/fájlok megjelölése prioritásos letöltésként.\n\nFelülírja a fájlt még akkor is, ha magasabb minőségben már létezik.",
+  "ping_desc": "Pingelje a SickChill-t, hogy ellenőrizze, fut-e.",
+  "port_desc": "Az alapértelmezett port: 8081",
+  "processmethod_desc": "A használandó feldolgozási módszer.\n\nMásolás - Másolja a fájlt a sorozat mappájába. (Az eredeti fájl megmarad a TV letöltési könyvtárban);\nÁthelyezés - Áthelyezi a fájlt a sorozat mappájába. (A fájl törlődik a TV letöltési könyvtárból);\nHard link - Hard linket hoz létre a sorozat mappájában, az eredeti fájl megmarad a TV letöltési könyvtárban;\nSzimbolikus link - Szimbolikus linket hoz létre a sorozat mappájában, amely a TV letöltési könyvtárban lévő fájlra mutat. Megjegyzés: ha a fájlt törli, a link sem fog működni!",
+  "requirements": "Ez a bővítmény Python 3.8 és újabb verziókkal kompatibilis.",
+  "verbose_desc": "További naplóüzenetek megjelenítése.\n\nHibakereséshez."
+}

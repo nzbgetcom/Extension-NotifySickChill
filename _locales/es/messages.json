@@ -1,0 +1,13 @@
+{
+  "about": "Extensión de post-procesamiento para notificar a SickChill después de las descargas.",
+  "apikey_desc": "Se utiliza para autenticar y autorizar el acceso a la API de SickChill.\n\nSe puede encontrar en la configuración de la interfaz web de SickChill.",
+  "delete_desc": "Eliminar archivos y carpetas tras la finalización del post-procesamiento.\n\nRecomendado cuando el método de procesamiento es Copiar, Enlace duro o Enlace simbólico:\nlos archivos originales permanecen en el directorio de descarga y se eliminan tras el procesamiento.\nCon Mover, limpia los archivos sobrantes y las carpetas vacías.",
+  "forcereplace_desc": "Forzar que los archivos ya post-procesados sean post-procesados de nuevo.",
+  "host_desc": "Host del servidor SickChill.",
+  "ispriority_desc": "Marcar directorio/archivos como descarga prioritaria.\n\nReemplaza el archivo incluso si ya existe con mayor calidad.",
+  "ping_desc": "Hacer ping a SickChill para comprobar si está en ejecución.",
+  "port_desc": "El puerto predeterminado es: 8081",
+  "processmethod_desc": "Método de procesamiento a utilizar.\n\nCopiar - Copia el archivo a la carpeta de tu serie. (Y por tanto deja una copia en tu directorio de descarga de TV);\nMover - Mueve el archivo a la carpeta de tu serie. (Y por tanto elimina el archivo de tu directorio de descarga de TV);\nEnlace duro - Crea un enlace duro en la carpeta de tus series y deja el archivo también en tu directorio de descarga de TV;\nEnlace simbólico - Crea un enlace en la carpeta de tus series al archivo dentro de tu directorio de descarga de TV. Nota: ¡si eliminas el archivo, el enlace también dejará de funcionar!",
+  "requirements": "Esta extensión es compatible con Python 3.8 y versiones superiores.",
+  "verbose_desc": "Mostrar más mensajes de registro.\n\nPara depuración."
+}

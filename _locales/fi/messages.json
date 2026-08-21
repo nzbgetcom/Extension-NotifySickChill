@@ -1,0 +1,13 @@
+{
+  "about": "Jälkikäsittelylaajennus SickChillin käynnistämiseksi latausten jälkeen.",
+  "apikey_desc": "Käytetään SickChill API:n käytön todentamiseen ja valtuuttamiseen.\n\nLöytyy SickChillin web-käyttöliittymän asetuksista.",
+  "delete_desc": "Poista tiedostot ja kansiot jälkikäsittelyn valmistuttua.\n\nSuositellaan, kun käsittelymenetelmänä on Kopioi, Kova linkki tai Symbolinen linkki:\nalkuperäiset tiedostot jäävät latauskansioon ja poistetaan käsittelyn jälkeen.\nSiirrä-menetelmällä se siivoaa jäljelle jääneet tiedostot ja tyhjät kansiot.",
+  "forcereplace_desc": "Pakota jo jälkikäsitellyt tiedostot jälkikäsiteltäviksi uudelleen.",
+  "host_desc": "SickChill-palvelimen isäntä.",
+  "ispriority_desc": "Merkitse kansio/tiedostot prioriteettilatauksinä.\n\nKorvaa tiedoston, vaikka se olisi olemassa paremmalla laadulla.",
+  "ping_desc": "Pingaa SickChilliä tarkistaaksesi, onko se käynnissä.",
+  "port_desc": "Oletusportti on: 8081",
+  "processmethod_desc": "Käytettävä käsittelymenetelmä.\n\nKopioi - Kopioi tiedoston sarjakansioon. (Jättää siis kopion TV-latauskansioon);\nSiirrä - Siirtää tiedoston sarjakansioon. (Poistaa siis tiedoston TV-latauskansioista);\nKova linkki - Luo kovan linkin sarjakansioon ja jättää tiedoston myös TV-latauskansioon;\nSymbolinen linkki - Luo sarjakansioon linkin TV-latauskansion tiedostoon. Huom: jos poistat tiedoston, linkki lakkaa toimimasta!",
+  "requirements": "Tämä laajennus on yhteensopiva Python 3.8:n ja sitä uudempien versioiden kanssa.",
+  "verbose_desc": "Tulosta enemmän lokiviestejä.\n\nVianmääritystä varten."
+}

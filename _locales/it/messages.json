@@ -1,0 +1,13 @@
+{
+  "about": "Estensione di Post-Processing per notificare SickChill dopo i download.",
+  "apikey_desc": "Utilizzata per autenticare e autorizzare l'accesso all'API di SickChill.\n\nPuò essere trovata nelle impostazioni dell'interfaccia web di SickChill.",
+  "delete_desc": "Elimina file e cartelle al termine del Post-Processing.\n\nConsigliato quando il Metodo di elaborazione è Copia, Collegamento fisico o Collegamento simbolico:\ni file originali rimangono nella cartella di download e vengono rimossi dopo l'elaborazione.\nCon Sposta, pulisce i file residui e le cartelle vuote.",
+  "forcereplace_desc": "Forza i file già post-elaborati a essere post-elaborati nuovamente.",
+  "host_desc": "Host del server SickChill.",
+  "ispriority_desc": "Contrassegna cartelle/file come download prioritario.\n\nSostituisce il file anche se esiste in qualità superiore.",
+  "ping_desc": "Esegui un ping a SickChill per verificare se è in esecuzione.",
+  "port_desc": "La porta predefinita è: 8081",
+  "processmethod_desc": "Metodo di elaborazione da utilizzare.\n\nCopia - Copia il file nella cartella della serie. (Lascia quindi una copia nella cartella di download TV);\nSposta - Sposta il file nella cartella della serie. (Rimuove quindi il file dalla cartella di download TV);\nCollegamento fisico - Crea un collegamento fisico nella cartella della serie e lascia il file anche nella cartella di download TV;\nCollegamento simbolico - Crea un collegamento nella cartella della serie al file nella cartella di download TV. Nota: se si rimuove il file, il collegamento non funzionerà più!",
+  "requirements": "Questa estensione è compatibile con Python 3.8 e versioni successive.",
+  "verbose_desc": "Stampa più messaggi di log.\n\nPer il debug."
+}

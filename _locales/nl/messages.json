@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing extensie om SickChill te activeren na downloads.",
+  "apikey_desc": "Wordt gebruikt om toegang tot de SickChill API te verifiëren en autoriseren.\n\nKan worden gevonden in de instellingen van de webinterface van SickChill.",
+  "delete_desc": "Verwijder bestanden en mappen na voltooiing van de nabewerking.\n\nAanbevolen wanneer de verwerkingsmethode Kopiëren, Harde koppeling of Symbolische koppeling is:\noriginele bestanden blijven in de downloadmap en worden na verwerking verwijderd.\nMet Verplaatsen worden achtergebleven bestanden en lege mappen opgeruimd.",
+  "forcereplace_desc": "Dwing al eerder nabewerkte bestanden opnieuw na te bewerken.",
+  "host_desc": "SickChill server host.",
+  "ispriority_desc": "Markeer map/bestanden als prioriteitsdownload.\n\nVervangt het bestand zelfs als het al bestaat in hogere kwaliteit.",
+  "ping_desc": "Ping SickChill om te controleren of het actief is.",
+  "port_desc": "Standaardpoort is: 8081",
+  "processmethod_desc": "Te gebruiken verwerkingsmethode.\n\nKopiëren - Kopieert het bestand naar uw showmap. (En laat dus een kopie achter in uw TV-downloadmap);\nVerplaatsen - Verplaatst het bestand naar uw showmap. (En verwijdert dus het bestand in uw TV-downloadmap);\nHarde koppeling - Maakt een harde koppeling in uw showsmap en laat het bestand ook in uw TV-downloadmap staan;\nSymbolische koppeling - Maakt een koppeling in uw showsmap naar het bestand in uw TV-downloadmap. Let op: als u het bestand verwijdert, werkt de koppeling ook niet meer!",
+  "requirements": "Deze extensie is compatibel met Python 3.8 en hoger.",
+  "verbose_desc": "Meer logberichten weergeven.\n\nVoor foutopsporing."
+}

@@ -1,0 +1,13 @@
+{
+  "about": "Extensie de post-procesare pentru a notifica SickChill după descărcări.",
+  "apikey_desc": "Folosit pentru autentificarea și autorizarea accesului la API-ul SickChill.\n\nPoate fi găsit în setările interfeței web a SickChill.",
+  "delete_desc": "Șterge fișierele și folderele după finalizarea post-procesării.\n\nRecomandat când Metoda de procesare este Copiere, Link hard sau Link simbolic:\nfișierele originale rămân în directorul de descărcare și sunt eliminate după procesare.\nCu Mutare, curăță fișierele rămase și folderele goale.",
+  "forcereplace_desc": "Forțează fișierele deja post-procesate să fie post-procesate din nou.",
+  "host_desc": "Adresa serverului SickChill.",
+  "ispriority_desc": "Marchează directorul/fișierele ca descărcare prioritară.\n\nÎnlocuiește fișierul chiar dacă există la o calitate superioară.",
+  "ping_desc": "Trimite un ping către SickChill pentru a verifica dacă rulează.",
+  "port_desc": "Portul implicit este: 8081",
+  "processmethod_desc": "Metoda de procesare care va fi utilizată.\n\nCopiere - Copiază fișierul în folderul emisiunii. (Și astfel lasă o copie în directorul de descărcare TV);\nMutare - Mută fișierul în folderul emisiunii. (Și astfel elimină fișierul din directorul de descărcare TV);\nLink hard - Creează un link hard în folderul emisiunilor și lasă fișierul și în directorul de descărcare TV;\nLink simbolic - Creează un link în folderul emisiunilor către fișierul din directorul de descărcare TV. Notă: dacă eliminați fișierul, link-ul nu va mai funcționa!",
+  "requirements": "Această extensie este compatibilă cu Python 3.8 și versiuni superioare.",
+  "verbose_desc": "Afișează mai multe mesaje de jurnalizare.\n\nPentru depanare."
+}
