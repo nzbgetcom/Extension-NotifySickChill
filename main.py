@@ -43,6 +43,7 @@ REQUIRED_OPTIONS = [
     "NZBPO_PROCESSMETHOD",
     "NZBPO_FORCEREPLACE",
     "NZBPO_ISPRIORITY",
+    "NZBPO_DELETE",
     "NZBPO_VERBOSE",
 ]
 
@@ -115,18 +116,29 @@ def ping_sickchill(url: str) -> int:
 
 
 def start_post_proccessing(
-    url: str, path: str, process_method: str, force_replace: int, is_priority: int
+    url: str,
+    path: str,
+    process_method: str,
+    force_replace: int,
+    is_priority: int,
+    delete: int = 0,
+    failed: int = 0,
+    nzb_name: str = None,
 ) -> int:
     try:
-        encoded_params = urllib.parse.urlencode(
-            {
-                "cmd": "postprocess",
-                "path": path,
-                "process_method": process_method,
-                "force_replace": force_replace,
-                "is_priority": is_priority,
-            }
-        )
+        params = {
+            "cmd": "postprocess",
+            "path": path,
+            "process_method": process_method,
+            "force_replace": force_replace,
+            "is_priority": is_priority,
+            "delete": delete,
+            "failed": failed,
+        }
+        if nzb_name:
+            params["nzbName"] = nzb_name
+
+        encoded_params = urllib.parse.urlencode(params)
 
         if VERBOSE:
             print(f"[INFO] PARAMS:", encoded_params)
@@ -148,6 +160,7 @@ def start_post_proccessing(
 
     except JSONDecodeError as ex:
         print("[ERROR] Wrong API Key?")
+        return ERROR
 
     except Exception as ex:
         print("[ERROR] Unexpected exception:", ex)
@@ -162,10 +175,18 @@ PATH = os.environ.get("NZBPP_FINALDIR") or os.environ["NZBPP_DIRECTORY"]
 PROCESS_METHOD = METHODS_MAP[os.environ["NZBPO_PROCESSMETHOD"]]
 FORCE_REPLACE = int(os.environ["NZBPO_FORCEREPLACE"] == "yes")
 IS_PRIORITY = int(os.environ["NZBPO_ISPRIORITY"] == "yes")
+DELETE = int(os.environ["NZBPO_DELETE"] == "yes")
+
+TOTAL_STATUS = os.environ.get("NZBPP_TOTALSTATUS")
+STATUS = os.environ.get("NZBPP_STATUS", "")
+FAILED = int(TOTAL_STATUS not in (None, "SUCCESS") or STATUS.startswith("FAILURE"))
+NZB_NAME = os.environ.get("NZBPP_NZBNAME")
 
 
 if VERBOSE:
     print("[INFO] PATH:", PATH)
+    if FAILED:
+        print("[INFO] Download status indicates FAILURE. Sending failed post-processing notification.")
 
 
 sys.exit(
@@ -175,5 +196,8 @@ sys.exit(
         PROCESS_METHOD,
         FORCE_REPLACE,
         IS_PRIORITY,
+        DELETE,
+        FAILED,
+        NZB_NAME,
     )
 )
