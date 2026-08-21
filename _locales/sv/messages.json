@@ -1,0 +1,13 @@
+{
+  "about": "Post-Processing-tillägg för att trigga SickChill efter nedladdningar.",
+  "apikey_desc": "Används för att autentisera och auktorisera åtkomst till SickChill API.\n\nFinns i inställningarna för SickChills webbgränssnitt.",
+  "delete_desc": "Ta bort filer och mappar efter slutförd efterbearbetning.\n\nRekommenderas när bearbetningsmetoden är Kopiera, Hård länk eller Symbolisk länk:\noriginala filer finns kvar i nedladdningsmappen och tas bort efter bearbetning.\nMed Flytta rensas överblivna filer och tomma mappar.",
+  "forcereplace_desc": "Tvinga redan efterbearbetade filer att efterbearbetas igen.",
+  "host_desc": "SickChill-serverns värd.",
+  "ispriority_desc": "Markera mappar/filer som prioriterad nedladdning.\n\nErsätter filen även om den finns i högre kvalitet.",
+  "ping_desc": "Pinga SickChill för att kontrollera om det körs.",
+  "port_desc": "Standardport är: 8081",
+  "processmethod_desc": "Bearbetningsmetod som ska användas.\n\nKopiera - Kopierar filen till din seriemapp. (Lämnar alltså en kopia i din TV-nedladdningsmapp);\nFlytta - Flyttar filen till din seriemapp. (Tar alltså bort filen från din TV-nedladdningsmapp);\nHård länk - Skapar en hård länk i din seriemapp och lämnar filen även i din TV-nedladdningsmapp;\nSymbolisk länk - Skapar en länk i din seriemapp till filen i din TV-nedladdningsmapp. Obs: om du tar bort filen slutar länken också att fungera!",
+  "requirements": "Detta tillägg är kompatibelt med Python 3.8 och senare.",
+  "verbose_desc": "Skriv ut fler loggmeddelanden.\n\nFör felsökning."
+}

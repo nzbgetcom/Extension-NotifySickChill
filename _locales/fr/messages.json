@@ -1,0 +1,13 @@
+{
+  "about": "Extension de post-traitement pour déclencher SickChill après les téléchargements.",
+  "apikey_desc": "Utilisée pour authentifier et autoriser l'accès à l'API SickChill.\n\nPeut être trouvée dans les paramètres de l'interface web de SickChill.",
+  "delete_desc": "Supprimer les fichiers et dossiers après la fin du post-traitement.\n\nRecommandé lorsque la méthode de traitement est Copier, Lien physique ou Lien symbolique :\nles fichiers originaux restent dans le répertoire de téléchargement et sont supprimés après le traitement.\nAvec Déplacer, cela nettoie les fichiers résiduels et les dossiers vides.",
+  "forcereplace_desc": "Forcer le post-traitement des fichiers déjà post-traités.",
+  "host_desc": "Hôte du serveur SickChill.",
+  "ispriority_desc": "Marquer les répertoires/fichiers comme téléchargement prioritaire.\n\nRemplace le fichier même s'il existe en qualité supérieure.",
+  "ping_desc": "Envoyer un ping à SickChill pour vérifier s'il est en cours d'exécution.",
+  "port_desc": "Le port par défaut est : 8081",
+  "processmethod_desc": "Méthode de traitement à utiliser.\n\nCopier - Copie le fichier dans votre dossier de série. (Et laisse donc une copie dans votre répertoire de téléchargement TV) ;\nDéplacer - Déplace le fichier dans votre dossier de série. (Et supprime donc le fichier dans votre répertoire de téléchargement TV) ;\nLien physique - Crée un lien physique dans votre dossier de séries, et laisse également le fichier dans votre répertoire de téléchargement TV ;\nLien symbolique - Crée un lien dans votre dossier de séries vers le fichier dans votre répertoire de téléchargement TV. Remarque : si vous supprimez le fichier, le lien ne fonctionnera plus non plus !",
+  "requirements": "Cette extension est compatible avec Python 3.8 et supérieur.",
+  "verbose_desc": "Afficher davantage de messages de journalisation.\n\nPour le débogage."
+}

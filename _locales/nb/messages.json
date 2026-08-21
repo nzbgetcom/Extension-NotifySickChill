@@ -1,0 +1,13 @@
+{
+  "about": "Etterbehandlingsutvidelse for å varsle SickChill etter nedlastinger.",
+  "apikey_desc": "Brukes til å autentisere og autorisere tilgang til SickChill API.\n\nKan finnes i innstillingene til webgrensesnittet i SickChill.",
+  "delete_desc": "Slett filer og mapper etter fullføring av etterbehandling.\n\nAnbefales når behandlingsmetoden er Kopier, Hard lenke eller Symbolsk lenke:\noriginalfiler forblir i nedlastingsmappen og fjernes etter behandling.\nMed Flytt ryddes gjenværende filer og tomme mapper opp.",
+  "forcereplace_desc": "Tving allerede etterbehandlede filer til å bli etterbehandlet på nytt.",
+  "host_desc": "SickChill-serververt.",
+  "ispriority_desc": "Merk mappe/filer som prioritetsnedlasting.\n\nErstatter filen selv om den finnes i høyere kvalitet.",
+  "ping_desc": "Ping SickChill for å sjekke om den kjører.",
+  "port_desc": "Standard port er: 8081",
+  "processmethod_desc": "Behandlingsmetode som skal brukes.\n\nKopier - Kopierer filen til seriens mappe. (Og etterlater dermed en kopi i TV-nedlastingsmappen din);\nFlytt - Flytter filen til seriens mappe. (Og fjerner dermed filen fra TV-nedlastingsmappen din);\nHard lenke - Oppretter en hard lenke i seriens mappe, og lar filen også ligge i TV-nedlastingsmappen din;\nSymbolsk lenke - Oppretter en lenke i seriens mappe til filen i TV-nedlastingsmappen din. Merk: hvis du fjerner filen, vil lenken heller ikke fungere lenger!",
+  "requirements": "Denne utvidelsen er kompatibel med Python 3.8 og nyere.",
+  "verbose_desc": "Skriv ut flere loggmeldinger.\n\nFor feilsøking."
+}
